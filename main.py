@@ -13,6 +13,12 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    
+    updatable = pygame.sprite.Group()
+    updatable.add(player)
+    
+    drawable = pygame.sprite.Group()
+    drawable.add(player)
 
     while True:
         for event in pygame.event.get():
@@ -21,8 +27,13 @@ def main():
         
         dt = clock.tick(60) / 1000 # waiting until next frame (at 60 FPS)
         screen.fill("black")
-        player.update(dt)
-        player.draw(screen)
+        
+        for u in updatable:
+            u.update(dt)
+        
+        for d in drawable:
+            d.draw(screen)
+
         pygame.display.flip() # Refreshing on-screen display
 
 
