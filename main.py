@@ -52,7 +52,7 @@ def main():
                 return
             for s in shots:
                 if a.collide(s):
-                    a.kill()
+                    a.split()
                     s.kill()
 
 
