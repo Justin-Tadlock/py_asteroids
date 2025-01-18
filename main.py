@@ -21,6 +21,7 @@ def main():
         
         dt = clock.tick(60) / 1000 # waiting until next frame (at 60 FPS)
         screen.fill("black")
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip() # Refreshing on-screen display
 
