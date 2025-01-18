@@ -43,6 +43,12 @@ def main():
         for d in drawable:
             d.draw(screen)
 
+        for a in asteroids:
+            if a.collide(player):
+                print("Game over!")
+                return
+
+
         pygame.display.flip() # Refreshing on-screen display
 
 
